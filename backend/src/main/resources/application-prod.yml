@@ -1,0 +1,30 @@
+# Profile de produção com hardening explícito (ADR-004, ADR-013, ADR-014).
+# Banco PostgreSQL, Flyway e variáveis de ambiente obrigatórios.
+
+spring:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    baseline-on-migrate: false
+    validate-on-migrate: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  structured:
+    format:
+      console: ecs
+
+evolutionvtt:
+  application:
+    environment: production

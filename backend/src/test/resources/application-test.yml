@@ -1,0 +1,23 @@
+# Profile de testes de fundação (contexto, web, validação, exceções e arquitetura).
+# Não utiliza banco em memória (H2) como substituto do PostgreSQL (ADR-004).
+# Testes de integração com persistência PostgreSQL real serão habilitados nas próximas fases.
+
+spring:
+  flyway:
+    enabled: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.hibernate.autoconfigure.HibernateJpaAutoConfiguration
+      - org.springframework.boot.data.jpa.autoconfigure.DataJpaRepositoriesAutoConfiguration
+      - org.springframework.boot.flyway.autoconfigure.FlywayAutoConfiguration
+
+evolutionvtt:
+  application:
+    environment: test
+
+logging:
+  structured:
+    format:
+      console: ecs
