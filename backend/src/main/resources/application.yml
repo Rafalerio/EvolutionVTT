@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: evolutionvtt-backend
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+
+  # Persistência padrão conforme ADR-004 (PostgreSQL + JPA/Hibernate + Flyway).
+  # Credenciais nunca ficam codificadas aqui; devem vir exclusivamente de variáveis de ambiente.
+  datasource:
+    url: ${DB_URL:}
+    username: ${DB_USERNAME:}
+    password: ${DB_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: false
+    validate-on-migrate: true
+    locations:
+      - classpath:db/migration
+
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+
+# Actuator restrito a health e info sem exposição de dados sensíveis (Seção 11 / ADR-014)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: ${spring.application.name}
+    version: ${evolutionvtt.application.version}
+
+# Logging estruturado nativo SLF4J/Logback (ADR-014)
+logging:
+  structured:
+    format:
+      console: ${LOG_STRUCTURED_FORMAT:ecs}
+    ecs:
+      service:
+        name: ${spring.application.name}
+        environment: ${evolutionvtt.application.environment}
+  level:
+    root: ${LOG_LEVEL_ROOT:INFO}
+    com.evolutionvtt: ${LOG_LEVEL_APP:INFO}
+
+evolutionvtt:
+  application:
+    name: Evolution VTT Backend
+    version: ${APP_VERSION:0.0.1-SNAPSHOT}
+    environment: ${APP_ENVIRONMENT:default}

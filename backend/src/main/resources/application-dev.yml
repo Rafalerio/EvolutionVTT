@@ -1,0 +1,10 @@
+# Profile de desenvolvimento integrado ao PostgreSQL + Flyway (ADR-004).
+# Exige DB_URL, DB_USERNAME e DB_PASSWORD via variáveis de ambiente; não oculta falhas de banco.
+
+evolutionvtt:
+  application:
+    environment: ${APP_ENVIRONMENT:development}
+
+logging:
+  level:
+    com.evolutionvtt: ${LOG_LEVEL_APP:DEBUG}

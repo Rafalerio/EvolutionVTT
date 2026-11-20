@@ -10,10 +10,11 @@ Repositório oficial: https://github.com/Rafalerio/EvolutionVTT
 
 O repositório encontra-se na **Fase 0 — Fundação do Repositório** (conforme o Blueprint Arquitetural):
 
-- Estrutura de diretórios, governança de desenvolvimento e diretrizes para agentes de IA estabelecidas.
+- Estrutura de diretórios, governança de desenvolvimento e diretrizes para agentes de IA estabelecidas (`EVTT-F0-001`).
+- Blueprint Arquitetural v1.0.0 (`EVTT-BP-001`), **ADR-001 a ADR-015** e modelos **C4-001 a C4-005** incorporados em [`docs/architecture/`](docs/architecture/README.md).
+- Fundação técnica do backend inicializada em [`backend/`](backend/README.md) (Java 25 LTS, Spring Boot 4.1.3, Maven Wrapper, estrutura modular com testes ArchUnit, health check, tratamento global de exceções e logging estruturado — `EVTT-F0-002`).
 - Protótipo estático inicial de interface e *design assets* preservados integralmente em [`frontend/`](frontend/).
-- Blueprint Arquitetural v1.0.0 (`EVTT-BP-001`) incorporado em [`docs/architecture/blueprint/`](docs/architecture/blueprint/).
-- Implementação do backend, migração do frontend para React/Vite/TypeScript, banco de dados e pipelines CI/CD ainda **não iniciados** e previstos para as tarefas seguintes do roadmap.
+- Migração do frontend para React/Vite/TypeScript, Docker Compose/PostgreSQL local e pipelines CI/CD ainda **não iniciados** e previstos para as tarefas seguintes da Fase 0.
 
 ---
 

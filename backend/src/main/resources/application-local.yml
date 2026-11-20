@@ -1,0 +1,21 @@
+# Profile local para inicialização da fundação sem infraestrutura PostgreSQL provisionada.
+# Uso explícito na Fase 0 (EVTT-F0-002): não oculta falhas de banco nos profiles `dev` ou `prod`.
+
+spring:
+  flyway:
+    enabled: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.hibernate.autoconfigure.HibernateJpaAutoConfiguration
+      - org.springframework.boot.data.jpa.autoconfigure.DataJpaRepositoriesAutoConfiguration
+      - org.springframework.boot.flyway.autoconfigure.FlywayAutoConfiguration
+
+evolutionvtt:
+  application:
+    environment: ${APP_ENVIRONMENT:local}
+
+logging:
+  level:
+    com.evolutionvtt: ${LOG_LEVEL_APP:DEBUG}

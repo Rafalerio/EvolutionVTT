@@ -41,6 +41,7 @@
 *.hcl text eol=lf
 Dockerfile text eol=lf
 *.dockerfile text eol=lf
+mvnw text eol=lf
 *.sh text eol=lf
 *.ps1 text eol=lf
 *.bat text eol=crlf
