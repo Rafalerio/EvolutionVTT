@@ -1,33 +1,24 @@
 # Documentação Arquitetural — Evolution VTT
 
-Este diretório reúne os documentos normativos que governam a arquitetura do **Evolution VTT**.
+## ADRs
+- [ADR-001-backend]({adr}/ADR-001-backend.md)
+- [ADR-002-frontend]({adr}/ADR-002-frontend.md)
+- [ADR-003-architecture]({adr}/ADR-003-architecture.md)
+- [ADR-004-data]({adr}/ADR-004-data.md)
+- [ADR-005-rules-engine]({adr}/ADR-005-rules-engine.md)
+- [ADR-006-content-versioning]({adr}/ADR-006-content-versioning.md)
+- [ADR-007-realtime]({adr}/ADR-007-realtime.md)
+- [ADR-008-graphics]({adr}/ADR-008-graphics.md)
+- [ADR-009-authentication]({adr}/ADR-009-authentication.md)
+- [ADR-010-file-storage]({adr}/ADR-010-file-storage.md)
+- [ADR-011-desktop]({adr}/ADR-011-desktop.md)
+- [ADR-012-mobile]({adr}/ADR-012-mobile.md)
+- [ADR-013-devops]({adr}/ADR-013-devops.md)
+- [ADR-014-observability]({adr}/ADR-014-observability.md)
 
-## Estrutura atual
-
-- [`blueprint/`](blueprint/README.md) — Blueprint Arquitetural consolidado (`EVTT-BP-001`).
-- [`adr/`](adr/README.md) — *Architecture Decision Records* (ADR-001 a ADR-014 aprovadas e futuras ADRs).
-- [`c4/`](c4/README.md) — Modelos e diagramas C4 (C4-001 a C4-005 aprovados).
-
-> Subdiretórios especializados previstos na Seção 23 do Blueprint (`api/`, `data-model/`, `security/`, `infrastructure/`) serão criados sob demanda quando os respectivos artefatos técnicos forem produzidos, evitando pastas vazias prematuras.
-
-## Status dos artefatos oficiais
-
-| Artefato | Status arquitetural | Presença no repositório | Local |
-|---|---|---|---|
-| Blueprint Arquitetural (`EVTT-BP-001` v1.0.0) | Baseline consolidada | **Incorporado** | [`blueprint/EvolutionVTT_Blueprint_Arquitetural_v1.0.0.md`](blueprint/EvolutionVTT_Blueprint_Arquitetural_v1.0.0.md) |
-| ADR-001 a ADR-014 | Aprovadas | **Pendente de incorporação dos arquivos originais pelo responsável** | [`adr/`](adr/README.md) |
-| C4-001 a C4-005 | Aprovados | **Pendente de incorporação dos arquivos/diagramas originais pelo responsável** | [`c4/`](c4/README.md) |
-
-## Hierarquia de referência
-
-Em caso de conflito entre artefatos, prevalece:
-
-1. ADR aprovada mais recente para a decisão específica.
-2. Modelo C4 aprovado e seus refinamentos aprovados.
-3. Blueprint Arquitetural consolidado.
-4. Documentação inicial e requisitos originais, quando não substituídos.
-5. Implementação existente.
-
-## Regra de evolução
-
-Decisões arquiteturais aprovadas **não podem ser alteradas silenciosamente**. Toda decisão arquitetural nova ou revisão de decisão existente exige criação ou substituição explícita via ADR em [`adr/`](adr/README.md).
+## C4
+- [C4-001-contexto]({c4}/C4-001-contexto.md)
+- [C4-002-containers]({c4}/C4-002-containers.md)
+- [C4-003-componentes-backend]({c4}/C4-003-componentes-backend.md)
+- [C4-004-modelos-e-interacoes]({c4}/C4-004-modelos-e-interacoes.md)
+- [C4-005-modelo-detalhado-modulos]({c4}/C4-005-modelo-detalhado-modulos.md)
