@@ -1,4 +1,85 @@
-.env
-node_modules
+# ==============================================================================
+# Evolution VTT — .gitignore
+# ==============================================================================
 
-docs
+# --- Segredos e variáveis de ambiente (nunca versionar credenciais reais) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+secrets/
+
+# --- Materiais locais de referência/pesquisa preservados fora do Git ---
+# Anteriormente excluídos pela regra genérica `docs`.
+# Revisar com o responsável do projeto antes de decidir por versioná-los.
+docs/Documentação VTT Evolution (2).pdf
+docs/Evolution_RPG_Modular_Research/
+
+# --- Backend: Java / Spring Boot (Maven e Gradle) ---
+target/
+build/
+.gradle/
+*.class
+*.jar
+*.war
+*.ear
+!**/gradle/wrapper/gradle-wrapper.jar
+hs_err_pid*
+replay_pid*
+*.log
+
+# --- Frontend: Node / Vite / TypeScript ---
+node_modules/
+dist/
+dist-ssr/
+.vite/
+coverage/
+*.tsbuildinfo
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Desktop futuro: Tauri / Rust ---
+src-tauri/target/
+
+# --- Infraestrutura: Terraform e Docker local ---
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+docker-compose.override.yml
+
+# --- Armazenamento local de desenvolvimento e testes ---
+storage/local/
+.local-storage/
+
+# --- IDEs, editores e sistema operacional ---
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.classpath
+.project
+.settings/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
