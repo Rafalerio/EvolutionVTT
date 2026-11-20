@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Evolution VTT dashboard for finding rooms, managing sessions, and exploring the community."
+    />
+    <title>Dashboard — Evolution VTT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Faustina:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <a class="brand" href="#dashboard" aria-label="Evolution VTT home">
+            <img class="brand-mark" src="assets/brand-eye.png" alt="" />
+            <img class="brand-wordmark" src="assets/brand-wordmark.png" alt="Evolution" />
+          </a>
+          <nav class="primary-nav" aria-label="Main navigation">
+            <button
+              class="nav-link nav-link-active"
+              id="play-menu-toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="play-menu"
+            >
+              Play Evolution
+              <img src="assets/chevron-down.svg" alt="" />
+            </button>
+            <a class="nav-link" href="#rules">Rules</a>
+            <a class="nav-link nav-link-with-icon" href="#library">
+              Library
+              <img src="assets/chevron-down.svg" alt="" />
+            </a>
+            <a class="nav-link" href="#forum">Forum</a>
+            <a class="nav-link" href="#marketplace">Marketplace</a>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <button class="user-menu" type="button" aria-label="Account menu for Drakonis">
+            <span class="user-avatar">D</span>
+            <span>Drakonis</span>
+            <img src="assets/chevron-down.svg" alt="" />
+          </button>
+          <button class="logout-button" type="button" data-notice="Logout is not connected in this preview.">
+            Logout
+          </button>
+          <button
+            class="mobile-menu-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="true"
+            aria-controls="play-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <section class="play-menu" id="play-menu" aria-label="Play Evolution menu">
+        <div class="play-menu-inner">
+          <div class="menu-column">
+            <h2 class="eyebrow">Start Playing</h2>
+            <a class="menu-item" href="#recommendations">
+              <img src="assets/icon-play.svg" alt="" />
+              <span><strong>Join a Room</strong><small>Browse open tables</small></span>
+            </a>
+            <a class="menu-item" href="#create-room">
+              <img src="assets/icon-plus-circle.svg" alt="" />
+              <span><strong>Create a Room</strong><small>Start a new session</small></span>
+            </a>
+            <a class="menu-item" href="#my-rooms">
+              <img src="assets/icon-users.svg" alt="" />
+              <span><strong>My Characters</strong><small>Manage your roster</small></span>
+            </a>
+          </div>
+
+          <div class="menu-divider" aria-hidden="true">
+            <img src="assets/menu-divider.svg" alt="" />
+          </div>
+
+          <div class="menu-column">
+            <h2 class="eyebrow">Game Systems</h2>
+            <a class="menu-item" href="#rules">
+              <img src="assets/icon-book-open.svg" alt="" />
+              <span><strong>Evolution RPG</strong><small>Core ruleset</small></span>
+            </a>
+            <a class="menu-item" href="#rules">
+              <img src="assets/icon-globe.svg" alt="" />
+              <span><strong>Evolution: WOW</strong><small>World of Wonders edition</small></span>
+            </a>
+            <a class="menu-item" href="#recommendations">
+              <img src="assets/icon-map.svg" alt="" />
+              <span><strong>Maps VTT</strong><small>Tactical map sessions</small></span>
+            </a>
+          </div>
+
+          <div class="menu-divider" aria-hidden="true">
+            <img src="assets/menu-divider.svg" alt="" />
+          </div>
+
+          <div class="featured-menu-column">
+            <h2 class="eyebrow">Featured</h2>
+            <a class="featured-menu-card" href="#recent-rooms">
+              <img src="assets/room-cavern.png" alt="" />
+              <span class="featured-menu-copy">
+                <strong>Caverna do Dragão</strong>
+                <small>Public · 3 players online</small>
+              </span>
+            </a>
+            <a class="button button-primary menu-cta" href="#create-room">Get Started Free</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="dashboard-layout" id="dashboard">
+        <aside class="sidebar" aria-label="Dashboard sections">
+          <div class="sidebar-group">
+            <h2 class="sidebar-heading">Quick Actions</h2>
+            <a class="sidebar-link is-active" href="#dashboard" aria-current="page">
+              <img src="assets/icon-dashboard.svg" alt="" />
+              <span>Dashboard</span>
+            </a>
+            <a class="sidebar-link" href="#create-room" data-notice="Room creation is not connected in this preview.">
+              <img src="assets/icon-plus-square.svg" alt="" />
+              <span>Create Room</span>
+            </a>
+            <a class="sidebar-link" href="#recommendations">
+              <img src="assets/icon-search.svg" alt="" />
+              <span>Browse Rooms</span>
+            </a>
+          </div>
+
+          <div class="sidebar-divider"></div>
+
+          <div class="sidebar-group">
+            <h2 class="sidebar-heading">My Rooms</h2>
+            <a class="sidebar-link" href="#recent-rooms">
+              <img src="assets/icon-clock.svg" alt="" />
+              <span>Recent</span>
+            </a>
+            <a class="sidebar-link" href="#favorites">
+              <img src="assets/icon-star.svg" alt="" />
+              <span>Favorites</span>
+            </a>
+            <a class="sidebar-link" href="#my-rooms">
+              <img src="assets/icon-shield.svg" alt="" />
+              <span>Game Master</span>
+            </a>
+            <a class="sidebar-link" href="#my-rooms">
+              <img src="assets/icon-user.svg" alt="" />
+              <span>Player</span>
+            </a>
+          </div>
+
+          <div class="sidebar-divider"></div>
+
+          <div class="sidebar-group">
+            <h2 class="sidebar-heading">Community</h2>
+            <a class="sidebar-link" id="library" href="#library">
+              <img src="assets/icon-book.svg" alt="" />
+              <span>Library</span>
+            </a>
+            <a class="sidebar-link" id="forum" href="#forum">
+              <img src="assets/icon-message.svg" alt="" />
+              <span>Forum</span>
+            </a>
+            <a class="sidebar-link" id="marketplace" href="#marketplace">
+              <img src="assets/icon-bag.svg" alt="" />
+              <span>Marketplace</span>
+            </a>
+          </div>
+        </aside>
+
+        <main class="content-area" id="rules">
+          <section class="welcome-row" aria-labelledby="welcome-title">
+            <div>
+              <h1 id="welcome-title">Welcome back, Drakonis</h1>
+              <p>You have 2 active sessions and 1 pending invite.</p>
+            </div>
+            <a class="button button-primary create-room-button" href="#create-room" data-notice="Room creation is not connected in this preview.">
+              <img src="assets/icon-plus.svg" alt="" />
+              Create Room
+            </a>
+          </section>
+
+          <section class="content-section" id="recommendations" aria-labelledby="recommendations-title">
+            <div class="section-heading-row">
+              <h2 class="section-title" id="recommendations-title">Recommendations</h2>
+              <a class="section-link" href="#recommendations">See all</a>
+            </div>
+
+            <div class="recommendation-grid">
+              <article class="room-card">
+                <img class="room-card-image" src="assets/room-library.png" alt="A candlelit elven library" />
+                <div class="room-card-content">
+                  <div class="room-card-title-row">
+                    <h3>Biblioteca Élfica</h3>
+                    <span class="badge badge-public">Public</span>
+                  </div>
+                  <p class="room-meta">Evolution RPG · 4 / 6 players</p>
+                  <p class="online-status"><img src="assets/icon-dot.svg" alt="" />3 users online</p>
+                  <div class="card-actions">
+                    <button class="button button-primary" type="button" data-notice="This room is part of the static design preview.">Join</button>
+                    <button class="button button-outline" type="button" data-notice="Room details are not connected in this preview.">Details</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="room-card">
+                <img class="room-card-image" src="assets/room-map.png" alt="A fantasy tabletop map with a dragon" />
+                <div class="room-card-content">
+                  <div class="room-card-title-row">
+                    <h3>Mapas do Destino</h3>
+                    <span class="badge badge-public">Public</span>
+                  </div>
+                  <p class="room-meta">Maps VTT · 2 / 5 players</p>
+                  <p class="online-status"><img src="assets/icon-dot.svg" alt="" />2 users online</p>
+                  <div class="card-actions">
+                    <button class="button button-primary" type="button" data-notice="This room is part of the static design preview.">Join</button>
+                    <button class="button button-outline" type="button" data-notice="Room details are not connected in this preview.">Details</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="room-card">
+                <img class="room-card-image" src="assets/room-cavern.png" alt="Glowing dice on a candlelit tabletop" />
+                <div class="room-card-content">
+                  <div class="room-card-title-row">
+                    <h3>Campanha do Caos</h3>
+                    <span class="badge badge-private">Private</span>
+                  </div>
+                  <p class="room-meta">Evolution RPG · 5 / 5 players</p>
+                  <p class="online-status status-waiting"><img src="assets/icon-dot-yellow.svg" alt="" />Session starting soon</p>
+                  <div class="card-actions">
+                    <button class="button button-disabled" type="button" disabled>Full</button>
+                    <button class="button button-outline" type="button" data-notice="Room details are not connected in this preview.">Details</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="room-card room-card-empty">
+                <div class="empty-card-image" aria-hidden="true">
+                  <img src="assets/icon-map-small.svg" alt="" />
+                </div>
+                <div class="room-card-content">
+                  <div class="room-card-title-row">
+                    <h3>Arena dos Heróis</h3>
+                    <span class="badge badge-public">Public</span>
+                  </div>
+                  <p class="room-meta">Evolution: WOW · 1 / 8 players</p>
+                  <p class="online-status"><img src="assets/icon-dot.svg" alt="" />1 user online</p>
+                  <div class="card-actions">
+                    <button class="button button-primary" type="button" data-notice="This room is part of the static design preview.">Join</button>
+                    <button class="button button-outline" type="button" data-notice="Room details are not connected in this preview.">Details</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="content-section recent-section" id="recent-rooms" aria-labelledby="recent-title">
+            <div class="section-heading-row">
+              <h2 class="section-title" id="recent-title">Recent Rooms</h2>
+              <a class="section-link" href="#recent-rooms">See all</a>
+            </div>
+
+            <div class="recent-list" id="my-rooms">
+              <article class="recent-room">
+                <img class="recent-thumb" src="assets/room-cavern.png" alt="" />
+                <div class="recent-room-info">
+                  <h3>Caverna do Dragão</h3>
+                  <p>Evolution RPG <span>·</span> GM: DragonMaster_X <span>·</span> Last session: 2 hours ago</p>
+                </div>
+                <div class="recent-room-right">
+                  <span class="online-status"><img src="assets/icon-dot.svg" alt="" />4 / 6 online</span>
+                  <button class="button button-primary" type="button" data-notice="This room is part of the static design preview.">Continue</button>
+                </div>
+              </article>
+
+              <article class="recent-room">
+                <img class="recent-thumb" src="assets/room-map.png" alt="" />
+                <div class="recent-room-info">
+                  <h3>Ruínas Perdidas</h3>
+                  <p>Maps VTT <span>·</span> GM: You <span>·</span> Last session: Yesterday</p>
+                </div>
+                <div class="recent-room-right">
+                  <span class="online-status status-waiting"><img src="assets/icon-dot-yellow.svg" alt="" />2 / 5 online</span>
+                  <button class="button button-primary" type="button" data-notice="This room is part of the static design preview.">Continue</button>
+                </div>
+              </article>
+
+              <article class="recent-room">
+                <span class="recent-thumb recent-thumb-placeholder" aria-hidden="true">
+                  <img src="assets/icon-shield-small.svg" alt="" />
+                </span>
+                <div class="recent-room-info">
+                  <h3>Torre de Cristal</h3>
+                  <p>Evolution: WOW <span>·</span> GM: Sorceria_Maia <span>·</span> Last session: 3 days ago</p>
+                </div>
+                <div class="recent-room-right">
+                  <span class="online-status status-muted"><img src="assets/icon-dot-muted.svg" alt="" />0 / 4 online</span>
+                  <button class="button button-outline" type="button" data-notice="This room is part of the static design preview.">Join</button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <div class="bottom-grid">
+            <section class="content-section" id="favorites" aria-labelledby="favorites-title">
+              <div class="section-heading-row">
+                <h2 class="section-title" id="favorites-title">Favorites</h2>
+              </div>
+              <div class="favorites-list">
+                <article class="favorite-room">
+                  <img src="assets/room-cavern.png" alt="" />
+                  <div class="favorite-room-info">
+                    <h3>Basilisco Branco</h3>
+                    <p><img src="assets/icon-dot-green.svg" alt="" />5 users online · Public</p>
+                  </div>
+                  <button class="favorite-toggle" type="button" aria-label="Remove Basilisco Branco from favorites" aria-pressed="true">
+                    <img src="assets/icon-star-small.svg" alt="" />
+                  </button>
+                </article>
+                <article class="favorite-room">
+                  <img src="assets/room-library.png" alt="" />
+                  <div class="favorite-room-info">
+                    <h3>Drakonis Private 777</h3>
+                    <p><img src="assets/icon-dot-gray.svg" alt="" />2 users online · Private</p>
+                  </div>
+                  <button class="favorite-toggle" type="button" aria-label="Remove Drakonis Private 777 from favorites" aria-pressed="true">
+                    <img src="assets/icon-star-small.svg" alt="" />
+                  </button>
+                </article>
+                <article class="favorite-room">
+                  <span class="favorite-placeholder" aria-hidden="true"><img src="assets/icon-map-outline.svg" alt="" /></span>
+                  <div class="favorite-room-info">
+                    <h3>Pântano Sombrio</h3>
+                    <p><img src="assets/icon-dot-dark.svg" alt="" />0 users online · Public</p>
+                  </div>
+                  <button class="favorite-toggle" type="button" aria-label="Add Pântano Sombrio to favorites" aria-pressed="false">
+                    <img src="assets/icon-star-small.svg" alt="" />
+                  </button>
+                </article>
+              </div>
+            </section>
+
+            <section class="content-section explore-section" id="create-room" aria-labelledby="explore-title">
+              <div class="section-heading-row">
+                <h2 class="section-title" id="explore-title">Explore &amp; Create</h2>
+              </div>
+              <div class="explore-list">
+                <a class="explore-link" href="#recommendations">
+                  <span class="explore-icon explore-icon-red"><img src="assets/icon-search-small.svg" alt="" /></span>
+                  <span><strong>Browse All Rooms</strong><small>Discover open sessions across all game systems</small></span>
+                  <img class="explore-chevron" src="assets/icon-chevron-right.svg" alt="" />
+                </a>
+                <a class="explore-link" href="#create-room" data-notice="Room creation is not connected in this preview.">
+                  <span class="explore-icon explore-icon-gold"><img src="assets/icon-plus-circle-small.svg" alt="" /></span>
+                  <span><strong>Create a Room</strong><small>Set up a new table and invite your party</small></span>
+                  <img class="explore-chevron" src="assets/icon-chevron-right.svg" alt="" />
+                </a>
+                <a class="explore-link" href="#my-rooms" data-notice="Character management is not connected in this preview.">
+                  <span class="explore-icon explore-icon-blue"><img src="assets/icon-user-plus.svg" alt="" /></span>
+                  <span><strong>Build a Character</strong><small>Create or manage your character roster</small></span>
+                  <img class="explore-chevron" src="assets/icon-chevron-right.svg" alt="" />
+                </a>
+                <a class="explore-link" href="#marketplace">
+                  <span class="explore-icon explore-icon-green"><img src="assets/icon-bag-small.svg" alt="" /></span>
+                  <span><strong>Marketplace</strong><small>Browse modules, maps and community content</small></span>
+                  <img class="explore-chevron" src="assets/icon-chevron-right.svg" alt="" />
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <footer class="ornamental-footer" aria-hidden="true">
+            <img class="footer-line" src="assets/icon-divider-1.svg" alt="" />
+            <span class="footer-crest"><i></i><i></i><i></i></span>
+            <img class="footer-line" src="assets/icon-divider-2.svg" alt="" />
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
